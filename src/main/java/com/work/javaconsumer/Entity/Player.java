@@ -10,7 +10,7 @@ public class Player {
     private int playerId;
     @Column
     private String name;
-    @Column()
+    @Column
     private String email;
     @Column
     private double balance;
