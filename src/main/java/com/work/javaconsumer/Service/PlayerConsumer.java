@@ -1,4 +1,5 @@
 package com.work.javaconsumer.Service;
+// ToDo space here and Service is better to write from a small letter
 import com.work.javaconsumer.Entity.Player;
 import com.work.javaconsumer.Entity.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.work.kafka.api.RegisterPlayerDTO;
 import org.work.kafka.api.WinDepositDTO;
 import static com.work.javaconsumer.Config.Constants.*;
 
+//ToDo I recommend you to separate PlayerConsumer and PlayerEventService for example
 @Component
 public class PlayerConsumer {
 
