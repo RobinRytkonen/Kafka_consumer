@@ -1,8 +1,7 @@
-package com.work.javaconsumer.Config;
+package com.work.javaconsumer.util;
 
 public class Constants {
-// ToDo In this case better make this constructor private and put constants into something like "util" package, not Config
-    public Constants() {
+    private Constants() {
     }
     public static final String DEPOSIT_TOPIC = "DepositTopic";
     public static final String REGISTER_TOPIC = "RegisterPlayerTopic";
