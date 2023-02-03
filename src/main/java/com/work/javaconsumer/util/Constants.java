@@ -1,8 +1,7 @@
-package com.work.javaconsumer.Config;
+package com.work.javaconsumer.util;
 
 public class Constants {
-
-    public Constants() {
+    private Constants() {
     }
     public static final String DEPOSIT_TOPIC = "DepositTopic";
     public static final String REGISTER_TOPIC = "RegisterPlayerTopic";

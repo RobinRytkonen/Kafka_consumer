@@ -1,4 +1,4 @@
-package com.work.javaconsumer.Entity;
+package com.work.javaconsumer.entity;
 
 import jakarta.persistence.*;
 
