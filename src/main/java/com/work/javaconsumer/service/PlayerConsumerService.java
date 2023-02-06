@@ -18,6 +18,7 @@ public class PlayerConsumerService {
     public RegisterPlayerDTO registerPlayer(RegisterPlayerDTO registerPlayerDTO) {
         if (playerRepository.findByName(registerPlayerDTO.getName()).isPresent()) {
             System.out.println("A player already registered with that name!");
+
         }
 
         Player newPlayer = new Player(

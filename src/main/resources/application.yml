@@ -17,10 +17,15 @@ spring:
               delegate:
                 class: org.springframework.kafka.support.serializer.JsonDeserializer
 
+  liquibase:
+    change-log: classpath:/liquibase/changelog-master.xml
+
   datasource:
     url: jdbc:mysql://localhost:3306/consumertest
     username:
     password:
-  jpa:
-    hibernate.ddl-auto: update
+  #jpa:
+    #hibernate.ddl-auto: update
+
+
 

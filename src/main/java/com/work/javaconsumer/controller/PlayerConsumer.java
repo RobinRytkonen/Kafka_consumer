@@ -19,7 +19,7 @@ public class PlayerConsumer {
     }
     // Register new player!
     @KafkaListener(topics = REGISTER_TOPIC, groupId = GROUP_ID)
-    public RegisterPlayerDTO registerPlayer(RegisterPlayerDTO registerPlayerDTO) {
+    public RegisterPlayerDTO registerPlayer(RegisterPlayerDTO registerPlayerDTO)  {
         return playerConsumerService.registerPlayer(registerPlayerDTO);
     }
 
