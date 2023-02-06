@@ -10,7 +10,7 @@ public class Player {
     @Column(name = "Id")
     private int playerId;
 
-    @Column(name = "PlayerName")
+    @Column(name = "Name")
     private String name;
 
     @Column(name = "Email")

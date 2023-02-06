@@ -11,7 +11,7 @@
             <column name="Id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="playerId"/>
             </column>
-            <column name="PlayerName" type="VARCHAR(255)"/>
+            <column name="Name" type="VARCHAR(255)"/>
             <column name="Email" type="VARCHAR(255)"/>
             <column name="Balance" type="BIGINT"/>
         </createTable>
