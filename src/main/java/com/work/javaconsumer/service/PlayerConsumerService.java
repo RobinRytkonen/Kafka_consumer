@@ -16,9 +16,12 @@ public class PlayerConsumerService {
     }
 
     public RegisterPlayerDTO registerPlayer(RegisterPlayerDTO registerPlayerDTO) {
-        if (playerRepository.findByName(registerPlayerDTO.getName()).isPresent()) {
+        if (playerRepository.findByName(registerPlayerDTO.getName()).isPresent())  {
             System.out.println("A player already registered with that name!");
-
+            return null;
+        } else if (playerRepository.findByEmail(registerPlayerDTO.getEmail()).isPresent()) {
+            System.out.println("A player already registered with that email!");
+            return null;
         }
 
         Player newPlayer = new Player(
@@ -36,6 +39,7 @@ public class PlayerConsumerService {
     public WinDepositDTO deposit(WinDepositDTO winDepositDTO) {
         if (playerRepository.findById(winDepositDTO.getPlayerId()).isEmpty()) {
             System.out.println("No registered player with that id!");
+            return null;
         }
 
         Player player = playerRepository.findById(winDepositDTO.getPlayerId()).get();

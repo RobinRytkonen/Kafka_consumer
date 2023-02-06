@@ -1,5 +1,6 @@
 package com.work.javaconsumer.controller;
 
+import com.work.javaconsumer.PlayerAlreadyExistException;
 import com.work.javaconsumer.service.PlayerConsumerService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,7 @@ public class PlayerConsumer {
     }
     // Register new player!
     @KafkaListener(topics = REGISTER_TOPIC, groupId = GROUP_ID)
-    public RegisterPlayerDTO registerPlayer(RegisterPlayerDTO registerPlayerDTO)  {
+    public RegisterPlayerDTO registerPlayer(RegisterPlayerDTO registerPlayerDTO) {
         return playerConsumerService.registerPlayer(registerPlayerDTO);
     }
 
