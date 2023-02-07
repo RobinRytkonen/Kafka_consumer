@@ -12,6 +12,7 @@ import org.work.kafka.api.WinDepositDTO;
 public class PlayerConsumerService {
 
     private static final Logger log = LogManager.getLogger(PlayerConsumerService.class);
+
     private final PlayerRepository playerRepository;
 
     public PlayerConsumerService(PlayerRepository playerRepository) {
