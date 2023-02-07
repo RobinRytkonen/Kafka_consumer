@@ -7,12 +7,16 @@ public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private int playerId;
-    @Column
+
+    @Column(name = "Name")
     private String name;
-    @Column
+
+    @Column(name = "Email")
     private String email;
-    @Column
+
+    @Column(name = "Balance")
     private double balance;
 
     public Player(String name, String email, double balance) {

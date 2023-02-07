@@ -5,19 +5,27 @@ spring:
     consumer:
       bootstrap-servers: localhost:9092
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
       group-id: group_java_id
       properties:
         spring:
           json:
            trusted:
             packages: 'org.work.kafka.api'
+          deserializer:
+            value:
+              delegate:
+                class: org.springframework.kafka.support.serializer.JsonDeserializer
 
-  h2-console.enabled: true
+  liquibase:
+    change-log: classpath:/liquibase/changelog-master.xml
+
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/consumertest
     username:
     password:
-  jpa-database-platform: org.hibernate.dialect.H2Dialect
+  #jpa:
+    #hibernate.ddl-auto: update
+
+
 
