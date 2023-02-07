@@ -25,10 +25,26 @@ class PlayerConsumerServiceTest {
     PlayerConsumerService playerConsumerService;
 
     @Test
-    public void should_save_one_player() {
+    public void should_find_one_player()  {
         //given
-        Player newPlayer = new Player("Bob", "Bobzoor@gmail.com", 0);
-        RegisterPlayerDTO dto = new RegisterPlayerDTO("Bob", "Bobzoor@gmail.com", 0);
+        RegisterPlayerDTO dto = new RegisterPlayerDTO("Bobba", "Bobzoor@gmail.com", 0);
+        Player newPlayer = new Player(dto.getName(), dto.getEmail(), dto.getBalance());
+
+        when(playerRepository.findByName(newPlayer.getName())).thenReturn(Optional.of(newPlayer));
+
+        //when
+        playerConsumerService.registerPlayer(dto);
+
+        //then
+        Assertions.assertEquals(dto.getName(), newPlayer.getName());
+        verify(playerRepository, times(1)).findByName(newPlayer.getName());
+    }
+
+    @Test
+    public void should_save_one_player()  {
+        //given
+        RegisterPlayerDTO dto = new RegisterPlayerDTO("Bobba", "Bobzoor@gmail.com", 0);
+        Player newPlayer = new Player(dto.getName(), dto.getEmail(), dto.getBalance());
 
         when(playerRepository.save(any(Player.class))).thenReturn(newPlayer);
 
@@ -36,6 +52,7 @@ class PlayerConsumerServiceTest {
         playerConsumerService.registerPlayer(dto);
 
         //then
+        Assertions.assertEquals(dto.getName(), newPlayer.getName());
         verify(playerRepository, times(1)).save(any(Player.class));
     }
 
@@ -43,7 +60,7 @@ class PlayerConsumerServiceTest {
     public void should_deposit_in_balance() {
         //given
         Player newPlayer = new Player("Bob", "Bobzoor@gmail.com", 0);
-        WinDepositDTO dto = new WinDepositDTO(1, 500);
+        WinDepositDTO dto = new WinDepositDTO(newPlayer.getPlayerId(), 500);
 
         when(playerRepository.findById(dto.getPlayerId())).thenReturn(Optional.of(newPlayer));
 
@@ -53,6 +70,7 @@ class PlayerConsumerServiceTest {
         //then
         Assertions.assertEquals(500, newPlayer.getBalance());
         verify(playerRepository, times(2)).findById(dto.getPlayerId());
+        verify(playerRepository, times(1)).save(any(Player.class));
     }
 
 }

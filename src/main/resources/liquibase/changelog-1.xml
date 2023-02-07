@@ -16,7 +16,8 @@
             <column name="Balance" type="BIGINT"/>
         </createTable>
     </changeSet>
-<!--
+
+<!-- Test data!
     <changeSet id="2" author="Robin Rytkönen">
         <comment>Add index to Player records</comment>
         <insert tableName="Player">

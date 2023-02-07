@@ -1,6 +1,5 @@
 package com.work.javaconsumer.controller;
 
-import com.work.javaconsumer.PlayerAlreadyExistException;
 import com.work.javaconsumer.service.PlayerConsumerService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
