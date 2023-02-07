@@ -52,7 +52,7 @@ class PlayerConsumerServiceTest {
         playerConsumerService.registerPlayer(dto);
 
         //then
-        Assertions.assertEquals(dto.getName(), newPlayer.getName());
+        Assertions.assertEquals(newPlayer.getName(), dto.getName());
         verify(playerRepository, times(1)).save(any(Player.class));
     }
 
